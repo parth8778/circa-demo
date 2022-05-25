@@ -1,0 +1,46 @@
+.payments-info {
+    margin-top: 16px;
+    padding: 16px;
+    box-shadow: 0px 0px 9px #0000003d;
+    border-radius: 16px;
+    .title {
+      color: var(--primary);
+    }
+    .payment-history-list {
+      border-radius: 16px;
+      box-shadow: 0px 0px 9px #0000001c;
+      .payment-history-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        border-bottom: 1px solid #0000001a;
+
+        .badge {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 18px;
+          min-width: 18px;
+          border-radius: 50%;
+          border: 1px solid var(--primary);
+        }
+        &:last-child {
+          border-bottom: none !important;
+        }
+        h5 {
+          margin: 0;
+        }
+      }
+    }
+    .card-footer {
+      margin: 8px 0 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .see-more-btn {
+        color: var(--primary);
+        font-size: 12px;
+      }
+    }
+  }

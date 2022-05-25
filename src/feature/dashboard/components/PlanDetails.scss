@@ -1,0 +1,53 @@
+
+.plan-details {
+  box-shadow: 0px 0px 9px #00000014;
+  padding: 16px;
+  border-radius: 16px;
+  .monthly-plans {
+    .title {
+      margin: 0;
+      font-size: 18px;
+      color: var(--primary);
+      margin-top: 12px;
+    }
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      margin: 0;
+      color: var(--primary);
+    }
+    .edit-btn {
+      color: var(--primary);
+      font-size: 12px;
+    }
+  }
+  .custom-avatar {
+    background: #ecebfe;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  .expectations {
+    .title {
+      margin: 0;
+      font-size: 18px;
+      color: var(--primary);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .no-expectations {
+      text-align: center;
+      margin-top: 23px;
+      color: var(--gray);
+      padding-bottom: 40px;
+    }
+  }
+}
