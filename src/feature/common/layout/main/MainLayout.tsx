@@ -8,7 +8,7 @@ const { Sider, Content } = Layout;
 
 function MainLayout() {
   let navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const logout = () => {
     localStorage.clear();
     navigate("/");
