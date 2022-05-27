@@ -1,50 +1,31 @@
 import "./Login.scss";
 import { Form, Input, Button, Checkbox, notification } from 'antd';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { doLogin } from "../../store/effect";
+import { Dispatch } from "redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function Login() {
   let navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
-  const onFinish = (values: any) => {
-    setLoading(true);
-    fetch('https://deveppopay.b2clogin.com/deveppopay.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;',
-        'Cookie': 'x-ms-cpim-sso:deveppopay.onmicrosoft.com_0=m1.Ux1P6Bb+IFOZq1d1.0KTY+w6nnvZiIaYHAevIjQ==.0./dHDHv8WKuWCFemi9n56g65/gVURFEAhrHbGcMi8MEoeqK8RRIL65aRjPiM+nDvUI6ondkvR08bnSJtA/Q+M5JSRUWKu4OtuvodpQqeu3OO/0Ija3gDRA5E2ybjnCvkoSZtTtWUUpXmll9i3AFU/oBUOmDqXTBJF1NK6SSp0doq1/ixA7ZGuLwESzOd7LZqmyrq6vB0BpaN5JrEAW0unpNldY991wXDTNzDMPTgYNP8='
-      },
-      body: new URLSearchParams({
-        client_id: '742dbeaa-009e-425b-875b-cb2dcc18fee4',
-        grant_type: 'password',
-        response_type: 'token id_token',
-        scope: 'openid 742dbeaa-009e-425b-875b-cb2dcc18fee4 offline_access profile',
-        username: values?.email, // 'sabarish.kumar@usistech.com',
-        password: values?.password // 'aA8870542848',
-      })
-    }).then(response => response.json())
-    .then(data => {
-      setLoading(false);
-      if (data?.error) {
-        const { error, error_description } = data;
-        notification['error']({
-          message: error,
-          description: error_description,
-        });
-        return;
-      }
-      if (data?.id_token) {
-        localStorage.setItem('authTokens', JSON.stringify(data));
-        navigate('/dashboard');
-      }
-    }).catch((e) => {
-      notification['error']({
-        message: 'Error',
-        description:
-          'Something went wrong!',
+
+  const authSubscription = useSelector((state: InitialState) => state.loginState)
+  useEffect(() => {
+    setLoading(authSubscription.isLoading);
+    if (authSubscription?.data) {
+      notification.success({
+        message: 'Success',
+        description: 'Login Successfully.',
       });
-      setLoading(false);
-    });
+      navigate('/dashboard');
+    }
+  }, [authSubscription]);
+
+
+  const dispatch: Dispatch<any> = useDispatch();
+  const onFinish = (values: any) => {
+    dispatch(doLogin(values));
   };
 
   return (

@@ -1,34 +1,56 @@
-import { Dropdown, Menu, Space } from "antd";
+import { Dropdown, Menu, Space, Spin } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { useEffect, useState } from "react";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Dispatch } from "redux";
+import { useDispatch } from "react-redux";
+import { onLeaseSelect } from "../../../store/effect";
+interface Props {
+  currentLeases: CurrentLeases[] | undefined;
+}
 
-function LeaseDropdown() {
-  const onClick = ({ key }: any) => {};
+function LeaseDropdown(props: Props) {
+  const dispatch: Dispatch<any> = useDispatch();
 
-  const menu = (
-    <Menu
-      onClick={onClick}
-      items={[
-        {
-          label: "1st menu item",
-          key: "1",
-        },
-        {
-          label: "2nd menu item",
-          key: "2",
-        },
-        {
-          label: "3rd menu item",
-          key: "3",
-        },
-      ]}
-    />
-  );
+  const onClick = ({ key }: any) => {
+    const selectedLease = props?.currentLeases?.[key];
+    if (selectedLease) {
+      setSelectedLease(selectedLease);
+      dispatch(onLeaseSelect(selectedLease));
+    }
+  };
+  const [selectedLease, setSelectedLease] = useState<any>();
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+  useEffect(() => {
+    const selectedLease = props?.currentLeases?.[0];
+    if (selectedLease) {
+      setSelectedLease(selectedLease);
+      dispatch(onLeaseSelect(selectedLease));
+    }
+  }, [props.currentLeases]);
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown
+      overlay={
+        <Menu
+          onClick={onClick}
+          items={props?.currentLeases?.map((currentLease, index) => {
+            return {
+              key: index,
+              label: `${currentLease.unitDisplayName} # ${currentLease.unitPrimaryDisplayName}`,
+            };
+          })}
+        />
+      }
+    >
       <span onClick={(e) => e.preventDefault()}>
         <Space>
-          123 Main street
+          {selectedLease ? (
+            `${selectedLease?.unitDisplayName} # ${ selectedLease?.unitPrimaryDisplayName}`
+          ) : (
+            <Spin indicator={antIcon} />
+          )}
           <DownOutlined />
         </Space>
       </span>

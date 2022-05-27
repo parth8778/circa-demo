@@ -15,20 +15,27 @@
         justify-content: space-between;
         padding: 16px;
         border-bottom: 1px solid #0000001a;
-
+        .no-border {
+          border: none !important;
+        }
         .badge {
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 18px;
-          min-width: 18px;
+          max-height: 18px;
+          max-width: 18px;
           border-radius: 50%;
           border: 1px solid var(--primary);
         }
+        .more-btn-container {
+          flex: 1;
+          text-align: end;
+        } 
         &:last-child {
           border-bottom: none !important;
         }
         h5 {
+          flex: 1;
           margin: 0;
         }
       }
@@ -43,4 +50,7 @@
         font-size: 12px;
       }
     }
+  }
+  .no-data {
+    text-align: center;
   }

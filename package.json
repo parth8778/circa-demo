@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.0.4",
     "antd": "^4.20.5",
     "axios": "^0.27.2",
+    "moment": "^2.29.3",
     "node-sass": "^7.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -50,6 +51,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.24",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
     "redux-devtools-extension": "^2.13.9"
   }
 }

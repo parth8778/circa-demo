@@ -1,11 +1,11 @@
 a {
-  color: #1b0e60;
+  color: var(--primary);
 }
 
 .primary-round-button {
   border: 1px solid;
   border-radius: 16px;
-  color: white;
+  color: var(--white);
 }
 
 .ant-tabs-nav-list {
@@ -18,19 +18,31 @@ a {
     border: 2px solid var(--primary) !important;
     border-radius: 30px !important;
     .ant-tabs-tab-btn {
-      color: #1b0e60 !important;
+      color: var(--primary) !important;
     }
   }
 
   .ant-tabs-tab-active {
     z-index: 999;
-    background: #1b0e60 !important;
+    background: var(--primary) !important;
     .ant-tabs-tab-btn {
-      color: white !important;
+      color: var(--white) !important;
     }
   }
 }
 
 .ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
   margin-left: -31px;
+}
+
+.ant-menu.ant-menu-dark, .ant-layout-sider {
+  background: var(--primary) !important;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: var(--secondary) !important;
+}
+
+.ant-layout-sider-trigger {
+  background: var(--primary) !important;
 }
