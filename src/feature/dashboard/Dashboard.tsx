@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { getDashboard, getResidents } from "../../store/effect";
+import UserProfile from "./components/UserProfile";
 
 function Dashboard() {
   const dispatch: Dispatch<any> = useDispatch();
@@ -59,6 +60,9 @@ function Dashboard() {
           <Spin tip="Loading..." spinning={isLoading}> 
             <PlanDetails></PlanDetails>
           </Spin>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={7} xl={7}>
+          <UserProfile />
         </Col>
       </Row>
     </div>

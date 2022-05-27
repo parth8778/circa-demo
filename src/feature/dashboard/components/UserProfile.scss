@@ -9,6 +9,46 @@
         .title {
           margin: 0;
           color: var(--primary);
+          font-weight: bolder;
+        }
+      }
+      .contact-details {
+        text-align: center;
+        img {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+        }
+        h2 {
+          margin: 5px 0px;
+          font-size: 20px;
+        }
+        p {
+          margin: 0;
+          color: var(--gray);
+          font-size: 14px;
+        }
+        .buttons {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 8px;
+          .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 12px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+            &:first-child {
+              margin-right: 8px;
+            }
+          }
         }
       }
 }

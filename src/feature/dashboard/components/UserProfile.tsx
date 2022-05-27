@@ -1,24 +1,25 @@
 import "./UserProfile.scss";
 import { Button } from "antd";
 
-function ActionInfoBox() {
+function UserProfile() {
   return (
     <>
-      <div className="plan-info">
-        <div>
-          <h2>Action Required</h2>
-          <p>Your account has a balance of $1000.</p>
-          <p>
-            Make a plan with your property to pay back missed rent using Circa
-            RentAssist.
-          </p>
+      <div className="user-profile">
+        <div className="header">
+          <h2 className="title">Contact</h2>
         </div>
-        <Button className="primary-round-button" type="text">
-          MAKE A PLAN
-        </Button>
+        <div className="contact-details">
+            <img src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" alt="" />
+            <h2>John Smith</h2>
+            <p>One Riverside</p>
+            <div className="buttons">
+              <Button className="action-btn" shape="round">CALL</Button>
+              <Button className="action-btn" shape="round">EMAIL</Button>
+            </div>
+          </div>
       </div>
     </>
   );
 }
 
-export default ActionInfoBox;
+export default UserProfile;
