@@ -83,6 +83,15 @@ export const onLeaseSelect = (selectedLease: any) => {
   };
 };
 
+export const resetAuthState = () => {
+  return (dispatch: any) => {
+    dispatch({
+      type: actionTypes.RESET_AUTH_STATE
+    });
+  };
+};
+
+
 function kickOutUser(error: any) {
   if (error?.response?.status === 401) {
     localStorage.clear();

@@ -3,7 +3,7 @@ import { Layout, Menu } from "antd";
 import { UserOutlined, UploadOutlined, LoginOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import MainHeader from "../common/header/Header";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 const { Sider, Content } = Layout;
 
 function MainLayout() {
@@ -12,6 +12,10 @@ function MainLayout() {
   const logout = () => {
     localStorage.clear();
     navigate("/");
+  };
+
+  if (!localStorage.getItem('authTokens')) {
+    return <Navigate to="/" />;
   };
 
   return (
@@ -45,7 +49,7 @@ function MainLayout() {
         </Content>
       </Layout>
     </Layout>
-  );
+  )
 }
 
 export default MainLayout;

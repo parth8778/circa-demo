@@ -3,14 +3,14 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #d9edff;
+  background: var(--login-background);
   .login-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
     max-width: 1000px;
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.16);
     overflow: hidden;
     margin: 0 auto;
@@ -25,7 +25,7 @@
   p {
     margin-bottom: 30px;
   }
-  p.form-title {
+  .form-title {
     color: #333333;
     font-family: "Josefin Sans", sans-serif;
     font-size: 42px;
@@ -59,12 +59,14 @@
     max-width: 800px;
     min-height: 100%;
     background-color: #fffdf2;
+    img {
+      display: block;
+      width: 100%;
+    }
   }
-  .illustration-wrapper img {
-    display: block;
-    width: 100%;
+  .ant-input:hover {
+    border-color: var(--primary);
   }
-  
   @media screen and (max-width: 1023px) {
     .login-box {
       flex-direction: column;
@@ -90,5 +92,11 @@
   .ant-checkbox-checked .ant-checkbox-inner {
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
+  }
+
+  .ant-checkbox-wrapper:hover 
+  .ant-checkbox-inner, 
+  .ant-checkbox:hover {
+    border-color:  var(--primary) !important;
   }
 }

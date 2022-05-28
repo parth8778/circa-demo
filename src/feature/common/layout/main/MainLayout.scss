@@ -26,7 +26,8 @@ a {
 .primary-round-button {
   border: 1px solid;
   border-radius: 16px;
-  color: var(--white);
+  color: var(--white) !important;
+  border: 1px solid var(--white) !important;
 }
 
 .ant-tabs-nav-list {

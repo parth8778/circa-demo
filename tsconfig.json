@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es5",
     "lib": [
       "dom",
@@ -18,13 +19,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@feature/*": ["src/feature/*"],
+    }
+    
   },
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
     "useCache": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "next-env.d.ts", "twin.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
 }

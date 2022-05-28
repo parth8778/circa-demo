@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "./feature/dashboard/Dashboard";
 import Layout from "./feature/common/layout/main/MainLayout";
 import Login from "./feature/login/Login";

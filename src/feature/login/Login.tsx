@@ -1,10 +1,11 @@
 import "./Login.scss";
 import { Form, Input, Button, Checkbox, notification } from 'antd';
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { doLogin } from "../../store/effect";
+import { Navigate, useNavigate } from "react-router-dom";
+import { doLogin, resetAuthState } from "../../store/effect";
 import { Dispatch } from "redux";
 import { useSelector, useDispatch } from "react-redux";
+import { Messages } from "../../configs/messages";
 
 function Login() {
   let navigate = useNavigate();
@@ -16,10 +17,12 @@ function Login() {
     if (authSubscription?.data) {
       notification.success({
         message: 'Success',
-        description: 'Login Successfully.',
+        description: Messages.loginSuccess,
       });
       navigate('/dashboard');
+      dispatch(resetAuthState());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSubscription]);
 
 
@@ -28,11 +31,15 @@ function Login() {
     dispatch(doLogin(values));
   };
 
+  if (localStorage.getItem('authTokens')) {
+    return <Navigate to="/dashboard" />;
+  };
+
   return (
     <div className="login-page">
     <div className="login-box">
       <div className="illustration-wrapper">
-        <img src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700" alt="Login"/>
+        <img src={'https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700'} alt="Login"/>
       </div>
       <Form
         name="login-form"

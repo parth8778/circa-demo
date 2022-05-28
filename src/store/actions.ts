@@ -16,3 +16,6 @@ export const GET_DASHBOARD_FAILED = "GET_DASHBOARD_FAILED"
 // get selectedLease actions
 export const SELECTED_LEASE = "SELECTED_LEASE"
 
+// reset items
+export const RESET_AUTH_STATE = "RESET_AUTH_STATE"
+

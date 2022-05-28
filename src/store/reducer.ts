@@ -92,6 +92,14 @@ const reducer = (
         ...action.data,
       },
     };
+
+    case actionTypes.RESET_AUTH_STATE: 
+    return {
+      ...state,
+      loginState: {
+        isLoading: false,
+      },
+    };
   }
   return state;
 };

@@ -28,7 +28,7 @@ function LeaseDropdown(props: Props) {
       setSelectedLease(selectedLease);
       dispatch(onLeaseSelect(selectedLease));
     }
-  }, [props.currentLeases]);
+  }, [dispatch, props?.currentLeases]);
 
   return (
     <Dropdown
